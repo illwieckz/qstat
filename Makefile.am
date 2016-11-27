@@ -58,3 +58,6 @@ cl:
 
 uncrustify:
 	uncrustify --no-backup -c 'uncrustify.cfg' -l c $(qstat_SOURCES)
+	# workaround, see https://github.com/multiplay/qstat/pull/29#issuecomment-263135308
+	# first run fixes the new line in '}\nelse {', second run fixes the bogus spaces in '} else    {' added by first run.
+	uncrustify --no-backup -c 'uncrustify.cfg' -l c $(qstat_SOURCES)
